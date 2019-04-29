@@ -1,0 +1,15 @@
+FROM alpine:3.9
+MAINTAINER pch18.cn
+
+COPY frp /frp
+VOLUME ["/frp"]
+
+ENV ADMIN_PORT=65000
+ENV ADMIN_USER=user
+ENV ADMIN_PWD=pwd
+ENV TOKEN=token
+
+ENV TCP_PORT=65001
+ENV UDP_PORT=65002
+
+CMD /frp/frps -c /frp/frps.ini
